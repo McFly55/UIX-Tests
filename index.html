@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UI-Spielwiese — Verspielte UI/UX-Elemente</title>
+<meta name="description" content="Eine spielerische Sammlung over-engineerter, stark animierter UI-Elemente. Keine echte Funktion — reines Design, Animation und Ästhetik.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛝</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="bg-orbs" aria-hidden="true">
+  <span class="orb orb-a"></span>
+  <span class="orb orb-b"></span>
+  <span class="orb orb-c"></span>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-text">
+      <p class="kicker">Over-engineered by design ✦</p>
+      <h1>UI&#8209;Spielwiese</h1>
+      <p class="subtitle">Eine Sammlung verspielter, stark animierter UI-Elemente — Lautstärkeregler, Passwortprüfung, Datumsselektierer und vieles mehr. Hinter keinem Element steckt echte Logik. Es geht rein um Design, Animation und Ästhetik. Karten kippen übrigens mit der Maus mit.</p>
+    </div>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Farbschema wechseln">
+      <span class="tt-icon" id="tt-icon">🌙</span>
+      <span class="tt-track"><span class="tt-knob"></span></span>
+    </button>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Animation ✦ Design ✦ Verspieltheit ✦ Micro-Interactions ✦ Bewegung ✦ Ästhetik ✦ Feder-Physik ✦ Partikel ✦ Animation ✦ Design ✦ Verspieltheit ✦ Micro-Interactions ✦ Bewegung ✦ Ästhetik ✦ Feder-Physik ✦ Partikel ✦&nbsp;</span>
+      <span>Animation ✦ Design ✦ Verspieltheit ✦ Micro-Interactions ✦ Bewegung ✦ Ästhetik ✦ Feder-Physik ✦ Partikel ✦ Animation ✦ Design ✦ Verspieltheit ✦ Micro-Interactions ✦ Bewegung ✦ Ästhetik ✦ Feder-Physik ✦ Partikel ✦&nbsp;</span>
+    </div>
+  </div>
+</header>
+
+<main class="grid">
+
+  <h2 class="category">Regler &amp; Schalter</h2>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Lautstärkeregler</h3>
+      <p>Mit Equalizer und Stummschaltung.</p>
+    </header>
+    <div class="card-body vol-row">
+      <button id="vol-mute" class="icon-btn" type="button" aria-label="Stummschalten">🔊</button>
+      <input type="range" id="vol" min="0" max="100" value="65" aria-label="Lautstärke">
+      <span class="val" id="vol-val">65</span>
+      <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Helligkeitsregler</h3>
+      <p>Die Vorschau reagiert live mit.</p>
+    </header>
+    <div class="card-body">
+      <div class="bri-preview">
+        <div class="screen" id="screen">
+          <span class="sun" id="sun">☀️</span>
+          <span class="screen-line w60"></span>
+          <span class="screen-line w80"></span>
+          <span class="screen-line w40"></span>
+          <span class="screen-glow"></span>
+        </div>
+      </div>
+      <div class="row">
+        <input type="range" id="bri" min="0" max="100" value="80" aria-label="Helligkeit">
+        <span class="val" id="bri-val">80%</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>An / Aus</h3>
+      <p>Ein Schalter mit Feder-Physik.</p>
+    </header>
+    <div class="card-body power-row">
+      <label class="switch">
+        <input type="checkbox" id="power" checked>
+        <span class="sw-track"><span class="sw-knob"></span></span>
+      </label>
+      <div class="power-text">
+        <strong id="power-label">AN</strong>
+        <p class="hint">Klick für den satten Klick</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Drehregler</h3>
+      <p>Vertikal ziehen, um zu drehen.</p>
+    </header>
+    <div class="card-body rot-row">
+      <div class="rot-wrap">
+        <div class="rot-arc" id="rot-arc"></div>
+        <div class="rot-ticks" id="rot-ticks" aria-hidden="true"></div>
+        <div class="rot-knob" id="rot-knob" role="slider" aria-label="Drehregler" aria-valuemin="0" aria-valuemax="100" tabindex="0"><span class="rot-line"></span></div>
+      </div>
+      <div class="rot-side">
+        <span class="val big" id="rot-val">35%</span>
+        <p class="hint">Ziehen zum Drehen</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Preis-Spanne</h3>
+      <p>Zwei Daumen auf einer Strecke.</p>
+    </header>
+    <div class="card-body">
+      <div class="dual-vals"><span class="val" id="dr-lo">€ 100</span><span class="val" id="dr-hi">€ 400</span></div>
+      <div class="dual">
+        <div class="dual-track"><div class="dual-fill" id="dual-fill"></div></div>
+        <input type="range" id="dr-min" min="0" max="100" value="20" aria-label="Minimum">
+        <input type="range" id="dr-max" min="0" max="100" value="80" aria-label="Maximum">
+      </div>
+      <p class="hint">0 € – 500 €, in 5-€-Schritten</p>
+    </div>
+  </section>
+
+  <h2 class="category">Eingaben</h2>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Passwort-Prüfung</h3>
+      <p>Live-Stärkeanzeige mit Checkliste.</p>
+    </header>
+    <div class="card-body">
+      <div class="pw-field">
+        <input type="password" id="pw" placeholder="Passwort eingeben …" autocomplete="off" spellcheck="false">
+        <button class="pw-eye" id="pw-eye" type="button" aria-label="Passwort anzeigen">👁️</button>
+      </div>
+      <div class="pw-meter" id="pw-meter"><i></i><i></i><i></i><i></i></div>
+      <p class="pw-label" id="pw-label">Noch nichts eingegeben</p>
+      <ul class="pw-rules" id="pw-rules">
+        <li data-rule="len"><span class="chk">✓</span>Mindestens 8 Zeichen</li>
+        <li data-rule="num"><span class="chk">✓</span>Mindestens eine Zahl</li>
+        <li data-rule="upper"><span class="chk">✓</span>Mindestens ein Großbuchstabe</li>
+        <li data-rule="sym"><span class="chk">✓</span>Mindestens ein Sonderzeichen</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Zahlselektion</h3>
+      <p>Plus/Minus mit Pop-Animation — halten zum Rampen.</p>
+    </header>
+    <div class="card-body">
+      <div class="stepper">
+        <button id="num-minus" class="step-btn" type="button" aria-label="Verringern">−</button>
+        <span class="num-val" id="num-val">42</span>
+        <button id="num-plus" class="step-btn" type="button" aria-label="Erhöhen">+</button>
+      </div>
+      <p class="hint">Halten = schneller zählen</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Datumsselektierer</h3>
+      <p>Eigener Kalender als Popover.</p>
+    </header>
+    <div class="card-body date-row">
+      <button id="date-btn" class="pill-btn" type="button">📅 …</button>
+      <div class="cal-pop" id="date-pop" hidden>
+        <div class="cal-head">
+          <button id="cal-prev" type="button" aria-label="Vorheriger Monat">‹</button>
+          <strong id="cal-title"></strong>
+          <button id="cal-next" type="button" aria-label="Nächster Monat">›</button>
+        </div>
+        <div class="cal-grid" id="cal-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Farbwähler</h3>
+      <p>Farbton-Schieber plus Presets.</p>
+    </header>
+    <div class="card-body">
+      <div class="color-top">
+        <div class="color-preview" id="color-preview"></div>
+        <div>
+          <span class="val big" id="color-hex">#8b5cf6</span>
+          <p class="hint">Hex-Code live</p>
+        </div>
+      </div>
+      <input type="range" id="hue" class="hue" min="0" max="360" value="265" aria-label="Farbton">
+      <div class="swatches" id="swatches">
+        <button type="button" data-h="0" style="--c:#ef4444" aria-label="Rot"></button>
+        <button type="button" data-h="25" style="--c:#f97316" aria-label="Orange"></button>
+        <button type="button" data-h="45" style="--c:#eab308" aria-label="Gelb"></button>
+        <button type="button" data-h="140" style="--c:#22c55e" aria-label="Grün"></button>
+        <button type="button" data-h="200" style="--c:#0ea5e9" aria-label="Blau"></button>
+        <button type="button" data-h="265" style="--c:#8b5cf6" aria-label="Violett"></button>
+        <button type="button" data-h="310" style="--c:#ec4899" aria-label="Pink"></button>
+        <button type="button" data-h="220" style="--c:#6366f1" aria-label="Indigo"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Uhrzeit-Wähler</h3>
+      <p>Zwei Scroll-Räder mit Einrasten.</p>
+    </header>
+    <div class="card-body time-row">
+      <div class="wheel" id="wheel-h" tabindex="0" aria-label="Stunden"></div>
+      <span class="colon">:</span>
+      <div class="wheel" id="wheel-m" tabindex="0" aria-label="Minuten"></div>
+      <span class="val big" id="time-val">14:00</span>
+    </div>
+  </section>
+
+  <h2 class="category">Auswahl &amp; Feedback</h2>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Sterne-Bewertung</h3>
+      <p>Hover füllt vor, Klick bleibt.</p>
+    </header>
+    <div class="card-body stars-row">
+      <div class="stars" id="stars">
+        <button type="button" aria-label="1 Stern">★</button>
+        <button type="button" aria-label="2 Sterne">★</button>
+        <button type="button" aria-label="3 Sterne">★</button>
+        <button type="button" aria-label="4 Sterne">★</button>
+        <button type="button" aria-label="5 Sterne">★</button>
+      </div>
+      <span class="val" id="stars-label">Noch keine Bewertung</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Segmentierte Steuerung</h3>
+      <p>Die Anzeige gleitet zur Auswahl.</p>
+    </header>
+    <div class="card-body">
+      <div class="seg" id="seg">
+        <span class="seg-ind" id="seg-ind"></span>
+        <button type="button" class="on">Tag</button>
+        <button type="button">Woche</button>
+        <button type="button">Monat</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Stimmungswähler</h3>
+      <p>Ein Emoji, viel Gefühl.</p>
+    </header>
+    <div class="card-body">
+      <div class="mood" id="mood">
+        <button type="button" data-label="Müde 😴">😫</button>
+        <button type="button" data-label="Geht so 😐">😐</button>
+        <button type="button" data-label="Okay 🙂">🙂</button>
+        <button type="button" data-label="Gut 😄">😄</button>
+        <button type="button" data-label="Begeistert 🤩">🤩</button>
+      </div>
+      <p class="hint center" id="mood-label">Wie fühlst du dich gerade?</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Checkboxen</h3>
+      <p>Gezeichneter Haken mit Draw-Animation.</p>
+    </header>
+    <div class="card-body checks">
+      <label class="check">
+        <input type="checkbox" checked>
+        <span class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <span>Newsletter abonnieren</span>
+      </label>
+      <label class="check">
+        <input type="checkbox">
+        <span class="box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <span>AGB akzeptieren</span>
+      </label>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Like-Button</h3>
+      <p>Herz mit Partikel-Explosion.</p>
+    </header>
+    <div class="card-body like-row">
+      <div class="like-wrap" id="like-wrap">
+        <button id="like-btn" type="button" aria-label="Liken">❤️</button>
+      </div>
+      <span class="val big" id="like-count">128</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Fortschritts-Ring</h3>
+      <p>Weich animiert per requestAnimationFrame.</p>
+    </header>
+    <div class="card-body ring-row">
+      <div class="ring-wrap">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring-bg" cx="60" cy="60" r="54"></circle>
+          <circle class="ring-fg" id="ring-fg" cx="60" cy="60" r="54"></circle>
+        </svg>
+        <span class="ring-pct" id="ring-pct">0%</span>
+      </div>
+      <button id="ring-btn" class="pill-btn" type="button">Zufälligen Fortschritt starten</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Akkordeon</h3>
+      <p>Sanftes Auf- und Zuklappen.</p>
+    </header>
+    <div class="card-body">
+      <div class="acc">
+        <div class="acc-item">
+          <button class="acc-head" type="button">Warum over-engineered?<span class="chev">⌄</span></button>
+          <div class="acc-panel"><p>Weil es Spaß macht. Jede Animation hier ist ein kleines Stück Handwerksliebe — Effizienz war nie das Ziel.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head" type="button">Funktioniert das wirklich?<span class="chev">⌄</span></button>
+          <div class="acc-panel"><p>Nein. Und genau darum geht es. Alle Zustände sind lokal und ohne Backend.</p></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head" type="button">Kann ich das so übernehmen?<span class="chev">⌄</span></button>
+          <div class="acc-panel"><p>Gerne! Der komplette Code liegt in drei Dateien: index.html, styles.css und app.js.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <header class="card-head">
+      <h3>Effekte</h3>
+      <p>Konfetti-Regen und magnetischer Knopf.</p>
+    </header>
+    <div class="card-body fx-row">
+      <button id="confetti-btn" class="pill-btn grad" type="button">🎉 Konfetti!</button>
+      <div class="mag-zone" id="mag-zone">
+        <button id="mag-btn" class="pill-btn" type="button">🧲 Magnetisch</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Nur Showcase — hinter keinem Element steckt echte Logik. Gebaut für Design, Animation &amp; Ästhetik. 🎨</p>
+</footer>
+
+<div id="confetti-layer" aria-hidden="true"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
